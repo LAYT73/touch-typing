@@ -35,7 +35,8 @@
   display: flex;
   align-items: flex-end;
   gap: var(--space-2);
-  height: 3rem;
+  height: 3.25rem;
+  padding-top: var(--space-2);
 }
 
 .barSlot {
@@ -56,14 +57,18 @@
   display: block;
   width: 100%;
   min-height: 4px;
-  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-active));
-  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, var(--color-accent-hover), var(--color-accent-active));
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   transform-origin: bottom center;
-  opacity: 0.75;
-  transition: opacity var(--duration-fast) var(--ease-out);
+  opacity: 0.78;
+  box-shadow: 0 -4px 12px rgb(255 138 61 / 18%);
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-spring);
 }
 
 .bar:hover,
 .bar:focus-visible {
   opacity: 1;
+  transform: scaleY(1.04);
 }

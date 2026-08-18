@@ -1,16 +1,31 @@
 body {
+  position: relative;
+  isolation: isolate;
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
   color: var(--color-text);
   background-color: var(--color-bg);
 
-  /* Two soft orange light sources keep the dark theme from looking flat. */
+  /* Layered light sources keep the dark canvas from reading flat. */
   background-image:
-    radial-gradient(60rem 34rem at 15% -12%, rgb(255 138 61 / 11%), transparent 65%),
-    radial-gradient(48rem 30rem at 92% 8%, rgb(255 138 61 / 6%), transparent 60%);
+    radial-gradient(70rem 38rem at 12% -14%, rgb(255 138 61 / 13%), transparent 62%),
+    radial-gradient(52rem 32rem at 88% 6%, rgb(255 138 61 / 7%), transparent 58%),
+    radial-gradient(36rem 24rem at 50% 108%, rgb(255 138 61 / 4%), transparent 70%);
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+/* A hair of film grain adds texture without stealing focus from the text. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
 }
 
 ::selection {

@@ -1,13 +1,19 @@
 .surface {
   position: relative;
-  padding: var(--space-2) var(--space-1);
+  padding: var(--space-3) var(--space-2);
   border-radius: var(--radius-lg);
   cursor: text;
   outline: none;
+  transition:
+    box-shadow var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out);
 }
 
-/* The surface is focusable, but a visible ring around a huge text block is
-   noisy: focus is communicated by the text becoming crisp instead. */
+/* A faint halo when focused — enough to notice, not enough to shout. */
 .surface:focus-visible {
   outline: none;
+  background-color: rgb(255 138 61 / 3%);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 138 61 / 12%),
+    var(--glow-accent-soft);
 }

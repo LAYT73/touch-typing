@@ -35,14 +35,21 @@
   background-color: var(--color-surface-active);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
+  box-shadow: var(--shadow-inset);
   transition:
     background-color var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out);
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.track:focus-visible {
+  box-shadow: var(--focus-ring);
 }
 
 .trackChecked {
-  background-color: var(--color-accent);
+  background: linear-gradient(180deg, var(--color-accent-hover), var(--color-accent));
   border-color: transparent;
+  box-shadow: var(--shadow-accent);
 }
 
 .thumb {
@@ -51,6 +58,7 @@
   height: 1.125rem;
   background-color: var(--color-text-muted);
   border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
   transition:
     transform var(--duration-base) var(--ease-spring),
     background-color var(--duration-base) var(--ease-out);

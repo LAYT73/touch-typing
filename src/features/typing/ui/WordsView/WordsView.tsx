@@ -71,6 +71,7 @@ export const WordsView = ({
                 expected={word}
                 typed={typedWord}
                 status={getWordStatus(index, wordIndex, word, typedWord)}
+                active={isActive}
                 blind={blind}
                 caretCharIndex={isActive ? (caret?.charIndex ?? null) : null}
                 caretCharRef={isActive ? caretCharRef : null}

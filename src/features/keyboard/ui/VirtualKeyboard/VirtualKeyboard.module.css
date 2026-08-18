@@ -5,6 +5,11 @@
   width: 100%;
   max-width: 44rem;
   margin-inline: auto;
+  padding: var(--space-3);
+  background-color: color-mix(in srgb, var(--color-surface) 55%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm), var(--shadow-inset);
   user-select: none;
 }
 
@@ -22,9 +27,11 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-text-subtle);
-  background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
+  background: linear-gradient(180deg, var(--color-surface-hover), var(--color-surface));
   border: 1px solid var(--color-border);
+  border-bottom-width: 2px;
   border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-inset);
   transition:
     color var(--duration-fast) var(--ease-out),
     background-color var(--duration-fast) var(--ease-out),
@@ -40,8 +47,9 @@
 
 .next {
   color: var(--color-text-inverse);
-  background-color: var(--color-accent);
+  background: linear-gradient(180deg, var(--color-accent-hover), var(--color-accent));
   border-color: transparent;
+  border-bottom-width: 1px;
   box-shadow: var(--shadow-accent);
   transform: translateY(-2px);
 }
@@ -53,6 +61,10 @@
 }
 
 @media (width <= 48rem) {
+  .keyboard {
+    padding: var(--space-2);
+  }
+
   .key {
     height: 1.9rem;
     font-size: var(--text-2xs);

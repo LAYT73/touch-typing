@@ -6,12 +6,14 @@
   height: calc(var(--leading-typing) * var(--visible-lines) * 1em);
   overflow: hidden;
   font-size: var(--text-typing);
-  transition: opacity var(--duration-base) var(--ease-out);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    filter var(--duration-slow) var(--ease-out);
 }
 
 .dimmed {
-  opacity: 0.25;
-  filter: blur(3px);
+  opacity: 0.22;
+  filter: blur(4px) saturate(0.6);
 }
 
 .words {
@@ -19,6 +21,7 @@
   font-family: var(--font-mono);
   font-weight: 400;
   line-height: var(--leading-typing);
+  letter-spacing: 0.01em;
   transition: transform var(--duration-slow) var(--ease-out);
   will-change: transform;
 }
@@ -29,6 +32,17 @@
   display: inline-block;
   line-height: inherit;
   white-space: nowrap;
+  border-radius: var(--radius-sm);
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.wordActive {
+  padding-inline: 0.12em;
+  margin-inline: -0.12em;
+  background-color: rgb(255 138 61 / 6%);
+  box-shadow: inset 0 -2px 0 rgb(255 138 61 / 28%);
 }
 
 .wordFlawed {
@@ -39,7 +53,9 @@
 }
 
 .char {
-  transition: color var(--duration-fast) var(--ease-out);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
 }
 
 .pending {
@@ -52,6 +68,7 @@
 
 .incorrect {
   color: var(--color-char-incorrect);
+  text-shadow: 0 0 12px rgb(255 95 95 / 35%);
 }
 
 .extra {
@@ -83,9 +100,9 @@
 }
 
 .caret-block {
-  background-color: color-mix(in srgb, var(--color-accent) 38%, transparent);
+  background-color: color-mix(in srgb, var(--color-accent) 42%, transparent);
   border-radius: 2px;
-  box-shadow: none;
+  box-shadow: var(--glow-accent-soft);
 }
 
 .caret-underline {
@@ -93,7 +110,7 @@
 }
 
 .caretBlinking {
-  animation: blink 1s steps(1, end) infinite;
+  animation: blink 1.05s steps(1, end) infinite;
 }
 
 @keyframes blink {

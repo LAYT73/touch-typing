@@ -1,19 +1,43 @@
 .card {
   position: relative;
-  background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--color-surface) 78%, transparent);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+  backdrop-filter: blur(14px) saturate(120%);
+}
+
+/* Inner sheen — reads as glass rather than a flat rectangle. */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    165deg,
+    rgb(255 255 255 / 5%) 0%,
+    transparent 42%,
+    rgb(0 0 0 / 8%) 100%
+  );
 }
 
 .highlighted::before {
   content: '';
   position: absolute;
-  inset-inline: 12%;
-  top: -1px;
+  inset-inline: 8%;
+  top: 0;
+  z-index: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 138 61 / 35%),
+    var(--color-accent),
+    rgb(255 138 61 / 35%),
+    transparent
+  );
+  box-shadow: 0 0 18px rgb(255 138 61 / 35%);
 }
 
 .padding-none {
