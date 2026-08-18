@@ -1,0 +1,55 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgb(10 10 13 / 55%) 0%, rgb(10 10 13 / 18%) 70%);
+
+  /* The surface underneath handles the click that restores focus. */
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: color-mix(in srgb, var(--color-bg-elevated) 92%, transparent);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+  animation: focusPulse 2.4s var(--ease-in-out) infinite;
+}
+
+.hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+@keyframes focusPulse {
+  0%,
+  100% {
+    box-shadow: var(--shadow-md), var(--shadow-inset);
+  }
+
+  50% {
+    box-shadow:
+      var(--shadow-md),
+      var(--shadow-inset),
+      0 0 0 4px rgb(255 138 61 / 12%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge {
+    animation: none;
+  }
+}

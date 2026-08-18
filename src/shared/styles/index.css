@@ -1,0 +1,7 @@
+/* Self-hosted variable fonts: no runtime request to a third-party CDN. */
+@import '@fontsource-variable/geist/index.css';
+@import '@fontsource-variable/jetbrains-mono/index.css';
+
+@import './tokens.css';
+@import './reset.css';
+@import './global.css';

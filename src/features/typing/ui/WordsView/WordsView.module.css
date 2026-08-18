@@ -1,0 +1,132 @@
+.viewport {
+  /* Three lines of text are visible; the container scrolls one line at a time. */
+  --visible-lines: 3;
+
+  position: relative;
+  height: calc(var(--leading-typing) * var(--visible-lines) * 1em);
+  overflow: hidden;
+  font-size: var(--text-typing);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    filter var(--duration-slow) var(--ease-out);
+}
+
+.dimmed {
+  opacity: 0.22;
+  filter: blur(4px) saturate(0.6);
+}
+
+.words {
+  position: relative;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  line-height: var(--leading-typing);
+  letter-spacing: 0.01em;
+  transition: transform var(--duration-slow) var(--ease-out);
+  will-change: transform;
+}
+
+.word {
+  /* Inline-block keeps a word from breaking across two lines and makes every
+     word box exactly one line tall, which the line-scroll maths relies on. */
+  display: inline-block;
+  line-height: inherit;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.wordActive {
+  padding-inline: 0.12em;
+  margin-inline: -0.12em;
+  background-color: rgb(255 138 61 / 6%);
+  box-shadow: inset 0 -2px 0 rgb(255 138 61 / 28%);
+}
+
+.wordFlawed {
+  text-decoration: underline;
+  text-decoration-color: var(--color-danger);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.28em;
+}
+
+.char {
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.pending {
+  color: var(--color-char-pending);
+}
+
+.correct {
+  color: var(--color-char-correct);
+}
+
+.incorrect {
+  color: var(--color-char-incorrect);
+  text-shadow: 0 0 12px rgb(255 95 95 / 35%);
+}
+
+.extra {
+  color: var(--color-char-extra);
+}
+
+.missed {
+  color: var(--color-char-pending);
+  text-decoration: underline;
+  text-decoration-color: var(--color-danger);
+  text-underline-offset: 0.2em;
+}
+
+/* ---------- Caret ---------- */
+
+.caret {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-caret);
+  background-color: var(--color-caret);
+  border-radius: 1px;
+  box-shadow: var(--glow-caret);
+  pointer-events: none;
+}
+
+.caret-line {
+  margin-left: -1px;
+}
+
+.caret-block {
+  background-color: color-mix(in srgb, var(--color-accent) 42%, transparent);
+  border-radius: 2px;
+  box-shadow: var(--glow-accent-soft);
+}
+
+.caret-underline {
+  border-radius: 2px;
+}
+
+.caretBlinking {
+  animation: blink 1.05s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caretBlinking {
+    animation: none;
+  }
+}
