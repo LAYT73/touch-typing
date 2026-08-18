@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence } from 'motion/react'
 import { useTranslation } from '@/i18n'
 import type { CaretStyle } from '@/shared/config'
+import { isLatinLetter, isNonLatinLetter } from '../../model/keyboardLayout'
 import { useTypingKeyboard } from '../../model/useTypingKeyboard'
 import type { TypingKeyHandlers } from '../../model/useTypingKeyboard'
 import type { CaretTarget } from '../../model/selectors'
 import type { SessionStatus } from '../../model/types'
 import { FocusOverlay } from '../FocusOverlay'
+import { LayoutHint } from '../LayoutHint'
 import { WordsView } from '../WordsView'
 import styles from './TypingArea.module.css'
 
@@ -37,13 +39,28 @@ export const TypingArea = ({
   smoothCaret,
   blindMode,
   enabled,
+  insert,
   ...handlers
 }: TypingAreaProps) => {
   const { t } = useTranslation()
   const surfaceRef = useRef<HTMLDivElement>(null)
   const [focused, setFocused] = useState(false)
+  const [flaggedText, setFlaggedText] = useState<string | null>(null)
+  const textId = words.join(' ')
+  const wrongLayout = flaggedText === textId
 
-  useTypingKeyboard({ target: surfaceRef, enabled: enabled && focused, ...handlers })
+  const handleInsert = (char: string) => {
+    if (isNonLatinLetter(char)) setFlaggedText(textId)
+    else if (isLatinLetter(char)) setFlaggedText(null)
+    insert(char)
+  }
+
+  useTypingKeyboard({
+    target: surfaceRef,
+    enabled: enabled && focused,
+    insert: handleInsert,
+    ...handlers,
+  })
 
   // Grab focus as soon as the surface can accept keystrokes, and again whenever
   // a new text arrives, so a restart never needs an extra click.
@@ -66,6 +83,8 @@ export const TypingArea = ({
         setFocused(false)
       }}
     >
+      <AnimatePresence>{wrongLayout && <LayoutHint />}</AnimatePresence>
+
       <WordsView
         words={words}
         typed={typed}

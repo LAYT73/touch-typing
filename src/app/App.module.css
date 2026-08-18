@@ -27,13 +27,18 @@
   z-index: var(--z-toast);
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
+  font-weight: 500;
   color: var(--color-text-inverse);
   background-color: var(--color-accent);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-accent);
   transform: translate(-50%, -200%);
-  transition: transform var(--duration-base) var(--ease-out);
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
 }
 
 .skipLink:focus-visible {
   transform: translate(-50%, 0);
+  box-shadow: var(--shadow-accent), var(--focus-ring);
 }

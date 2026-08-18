@@ -25,7 +25,7 @@ export const App = () => {
       </a>
 
       <div className={styles.shell}>
-        <Header onOpenSettings={openSettings} />
+        <Header />
 
         <main className={styles.main} id="typing-test">
           <TypingTest settingsOpen={settingsOpen} onOpenSettings={openSettings} />

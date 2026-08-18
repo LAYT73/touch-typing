@@ -44,6 +44,8 @@ export const en = {
   'typing.hintDeleteWord': 'delete word',
   'typing.hintFocus': 'focus',
   'typing.inputLabel': 'Typing input',
+  'typing.layoutHint':
+    'Switch to an English keyboard layout — those keys are typing another alphabet.',
 
   'stats.wpm': 'wpm',
   'stats.wpmLong': 'Words per minute',
@@ -112,5 +114,6 @@ export const en = {
   'footer.repo': 'View source',
 
   'common.of': 'of',
+  'common.or': 'or',
   'common.perMinute': 'per minute',
 } as const

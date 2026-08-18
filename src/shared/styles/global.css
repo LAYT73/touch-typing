@@ -5,10 +5,11 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
 
-  /* Two soft orange light sources keep the dark theme from looking flat. */
+  /* Soft orange wash — no grain, so the canvas stays smooth at any scale. */
   background-image:
-    radial-gradient(60rem 34rem at 15% -12%, rgb(255 138 61 / 11%), transparent 65%),
-    radial-gradient(48rem 30rem at 92% 8%, rgb(255 138 61 / 6%), transparent 60%);
+    radial-gradient(70rem 38rem at 12% -14%, rgb(255 138 61 / 13%), transparent 62%),
+    radial-gradient(52rem 32rem at 88% 6%, rgb(255 138 61 / 7%), transparent 58%),
+    radial-gradient(36rem 24rem at 50% 108%, rgb(255 138 61 / 4%), transparent 70%);
   background-attachment: fixed;
   background-repeat: no-repeat;
 }

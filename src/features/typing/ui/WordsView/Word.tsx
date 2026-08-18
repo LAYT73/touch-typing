@@ -8,6 +8,8 @@ export interface WordProps {
   expected: string
   typed: string
   status: WordStatus
+  /** Highlights the word the caret is currently in. */
+  active?: boolean | undefined
   /** Hides mistakes until the test is over. */
   blind: boolean
   /** Index of the character the caret is attached to, or `null`. */
@@ -28,6 +30,7 @@ const WordView = ({
   expected,
   typed,
   status,
+  active = false,
   blind,
   caretCharIndex,
   caretCharRef,
@@ -38,7 +41,10 @@ const WordView = ({
   const flawed = status === 'incorrect' && !blind
 
   return (
-    <span ref={wordRef} className={cn(styles.word, flawed && styles.wordFlawed)}>
+    <span
+      ref={wordRef}
+      className={cn(styles.word, active && styles.wordActive, flawed && styles.wordFlawed)}
+    >
       {chars.map((char, index) => (
         <span
           // Characters are identified by position: the caret and the styling

@@ -24,15 +24,19 @@
   align-items: center;
   justify-content: center;
   min-height: 16rem;
+  padding: var(--space-6);
   text-align: center;
 }
 
 .placeholderIcon {
   color: var(--color-danger);
+  filter: drop-shadow(0 0 10px rgb(255 95 95 / 25%));
 }
 
 .placeholderText {
+  max-width: 24rem;
   font-size: var(--text-sm);
+  line-height: var(--leading-normal);
   color: var(--color-text-muted);
 }
 
@@ -43,6 +47,7 @@
   flex-wrap: wrap;
   gap: var(--space-2) var(--space-5);
   justify-content: center;
+  padding-top: var(--space-2);
   font-size: var(--text-xs);
   color: var(--color-text-subtle);
 }
@@ -55,4 +60,5 @@
 
 .plus {
   margin-inline: calc(var(--space-1) * -1);
+  opacity: 0.55;
 }

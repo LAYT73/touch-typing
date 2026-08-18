@@ -26,7 +26,9 @@
 }
 
 .summary {
+  max-width: 36rem;
   font-size: var(--text-md);
+  line-height: var(--leading-normal);
   color: var(--color-text-muted);
 }
 
@@ -34,6 +36,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-8) var(--space-12);
+  padding: var(--space-5);
+  background: linear-gradient(
+    135deg,
+    rgb(255 138 61 / 6%) 0%,
+    transparent 55%,
+    rgb(255 138 61 / 3%) 100%
+  );
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-inset);
 }
 
 .grid {
@@ -45,9 +57,11 @@
 }
 
 .quote {
+  padding-left: var(--space-4);
   font-size: var(--text-sm);
   font-style: italic;
   color: var(--color-text-subtle);
+  border-left: 2px solid var(--color-accent-ring);
 }
 
 .actions {
@@ -71,6 +85,10 @@
 }
 
 @media (width <= 40rem) {
+  .hero {
+    padding: var(--space-4);
+  }
+
   .hints {
     margin-left: 0;
   }

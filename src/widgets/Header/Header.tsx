@@ -1,16 +1,12 @@
 import { motion } from 'motion/react'
-import { Icon, IconButton, SegmentedControl } from '@/shared/ui'
+import { Icon, SegmentedControl } from '@/shared/ui'
 import type { SegmentedOption } from '@/shared/ui'
 import { APP_CONFIG } from '@/shared/config'
 import { LOCALES, LOCALE_SHORT_LABELS, useTranslation } from '@/i18n'
 import type { Locale } from '@/i18n'
 import styles from './Header.module.css'
 
-export interface HeaderProps {
-  onOpenSettings: () => void
-}
-
-export const Header = ({ onOpenSettings }: HeaderProps) => {
+export const Header = () => {
   const { t, locale, setLocale } = useTranslation()
 
   const localeOptions: Array<SegmentedOption<Locale>> = LOCALES.map((value) => ({
@@ -46,7 +42,6 @@ export const Header = ({ onOpenSettings }: HeaderProps) => {
           value={locale}
           onChange={setLocale}
         />
-        <IconButton icon="sliders" label={t('header.settings')} onClick={onOpenSettings} />
         <a
           className={styles.iconLink}
           href={APP_CONFIG.repositoryUrl}

@@ -49,7 +49,7 @@ describe('App', () => {
     const user = userEvent.setup()
     renderApp()
 
-    await user.click(screen.getAllByRole('button', { name: 'Settings' })[0]!)
+    await user.click(screen.getByRole('button', { name: 'Settings' }))
 
     const dialog = await screen.findByRole('dialog', { name: 'Settings' })
     await user.click(screen.getByRole('switch', { name: /Blind mode/ }))

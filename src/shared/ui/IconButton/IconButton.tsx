@@ -26,7 +26,6 @@ export const IconButton = ({
     type={type}
     className={cn(styles.button, styles[size], active && styles.active, className)}
     aria-label={label}
-    title={label}
     aria-pressed={active}
     {...rest}
   >
