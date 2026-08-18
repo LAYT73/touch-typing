@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react'
-import { IconButton, SegmentedControl } from '@/shared/ui'
+import { IconButton, SegmentedControl, Tooltip } from '@/shared/ui'
 import type { SegmentedOption } from '@/shared/ui'
 import { QUOTE_LENGTHS, TEST_MODES, TIME_OPTIONS, WORD_COUNT_OPTIONS } from '@/shared/config'
 import type { QuoteLength, TestMode, TimeOption, WordCountOption } from '@/shared/config'
@@ -105,34 +105,42 @@ export const TestToolbar = ({
       <div className={styles.modifiers}>
         {settings.mode !== 'quote' && (
           <>
-            <IconButton
-              icon="atSign"
-              size="sm"
-              label={t('options.punctuation')}
-              active={settings.punctuation}
-              onClick={() => {
-                onChange({ punctuation: !settings.punctuation })
-              }}
-            />
-            <IconButton
-              icon="hash"
-              size="sm"
-              label={t('options.numbers')}
-              active={settings.numbers}
-              onClick={() => {
-                onChange({ numbers: !settings.numbers })
-              }}
-            />
+            <Tooltip content={t('options.punctuation')}>
+              <IconButton
+                icon="atSign"
+                size="sm"
+                label={t('options.punctuation')}
+                active={settings.punctuation}
+                onClick={() => {
+                  onChange({ punctuation: !settings.punctuation })
+                }}
+              />
+            </Tooltip>
+            <Tooltip content={t('options.numbers')}>
+              <IconButton
+                icon="hash"
+                size="sm"
+                label={t('options.numbers')}
+                active={settings.numbers}
+                onClick={() => {
+                  onChange({ numbers: !settings.numbers })
+                }}
+              />
+            </Tooltip>
           </>
         )}
 
-        <IconButton icon="restart" size="sm" label={t('typing.restart')} onClick={onRestart} />
-        <IconButton
-          icon="sliders"
-          size="sm"
-          label={t('header.settings')}
-          onClick={onOpenSettings}
-        />
+        <Tooltip content={t('typing.restart')}>
+          <IconButton icon="restart" size="sm" label={t('typing.restart')} onClick={onRestart} />
+        </Tooltip>
+        <Tooltip content={t('header.settings')}>
+          <IconButton
+            icon="sliders"
+            size="sm"
+            label={t('header.settings')}
+            onClick={onOpenSettings}
+          />
+        </Tooltip>
       </div>
     </div>
   )
