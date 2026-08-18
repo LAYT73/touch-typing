@@ -39,6 +39,8 @@ export const ru: Translations = {
   'typing.hintDeleteWord': 'удалить слово',
   'typing.hintFocus': 'фокус',
   'typing.inputLabel': 'Поле ввода',
+  'typing.layoutHint':
+    'Переключите клавиатуру на английскую — клавиши нажимаются верно, но печатается другой алфавит.',
 
   'stats.wpm': 'сл/мин',
   'stats.wpmLong': 'Слов в минуту',
@@ -109,5 +111,6 @@ export const ru: Translations = {
   'footer.repo': 'Открыть код',
 
   'common.of': 'из',
+  'common.or': 'или',
   'common.perMinute': 'в минуту',
 }
