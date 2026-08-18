@@ -1,0 +1,37 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.bubble {
+  position: absolute;
+  left: 50%;
+  z-index: var(--z-sticky);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-2xs);
+  color: var(--color-text);
+  background-color: var(--color-surface-active);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.top {
+  bottom: calc(100% + var(--space-2));
+}
+
+.bottom {
+  top: calc(100% + var(--space-2));
+}
+
+.wrapper:hover .bubble,
+.wrapper:focus-within .bubble {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

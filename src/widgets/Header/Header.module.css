@@ -1,0 +1,74 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--color-text-inverse);
+  background: linear-gradient(140deg, var(--color-accent-hover), var(--color-accent-active));
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-accent);
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+
+.brand:hover .mark {
+  transform: rotate(-8deg) scale(1.05);
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: var(--text-md);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+}
+
+.tagline {
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.iconLink {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-md);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.iconLink:hover {
+  color: var(--color-text);
+  background-color: var(--color-surface-hover);
+}
+
+@media (width <= 30rem) {
+  .tagline {
+    display: none;
+  }
+}

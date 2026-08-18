@@ -1,0 +1,38 @@
+.bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  gap: var(--space-4) var(--space-6);
+}
+
+.counter {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.counterValue {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.counterLabel {
+  font-size: var(--text-2xs);
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+.stats {
+  display: flex;
+  gap: var(--space-6);
+  justify-content: flex-end;
+}
+
+.progress {
+  grid-column: 1 / -1;
+}

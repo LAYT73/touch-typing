@@ -1,0 +1,39 @@
+.app {
+  min-height: 100dvh;
+}
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-6), 4vw, var(--space-10));
+  width: 100%;
+  max-width: var(--layout-max-width);
+  min-height: 100dvh;
+  margin-inline: auto;
+  padding: clamp(var(--space-5), 4vw, var(--space-10)) var(--layout-gutter);
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skipLink {
+  position: absolute;
+  top: var(--space-3);
+  left: 50%;
+  z-index: var(--z-toast);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-inverse);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-md);
+  transform: translate(-50%, -200%);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.skipLink:focus-visible {
+  transform: translate(-50%, 0);
+}

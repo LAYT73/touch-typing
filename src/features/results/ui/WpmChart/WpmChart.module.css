@@ -1,0 +1,85 @@
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.chart {
+  width: 100%;
+  height: clamp(9rem, 22vw, 12rem);
+  overflow: visible;
+}
+
+.grid {
+  stroke: var(--color-border);
+  stroke-width: 1;
+  stroke-dasharray: 2 6;
+}
+
+.area {
+  stroke: none;
+}
+
+.wpmLine {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rawLine {
+  fill: none;
+  stroke: var(--color-text-subtle);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  stroke-linecap: round;
+}
+
+.error {
+  fill: var(--color-danger);
+  stroke: var(--color-bg);
+  stroke-width: 1.5;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  font-size: var(--text-2xs);
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.swatch {
+  width: 0.75rem;
+  height: 2px;
+  border-radius: var(--radius-full);
+}
+
+.swatchWpm {
+  background-color: var(--color-accent);
+}
+
+.swatchRaw {
+  background-color: var(--color-text-subtle);
+}
+
+.swatchError {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--color-danger);
+}
+
+.axis {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
