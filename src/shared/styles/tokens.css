@@ -1,0 +1,126 @@
+/**
+ * Design tokens.
+ *
+ * Only this file hardcodes colors, spacing and motion values. Every component
+ * consumes tokens through `var(--*)`, so the whole look is themeable from here.
+ */
+
+:root {
+  /* ---------- Palette: warm-tinted neutrals ---------- */
+  --color-bg: #0a0a0d;
+  --color-bg-elevated: #101017;
+  --color-surface: #14141d;
+  --color-surface-hover: #1b1b26;
+  --color-surface-active: #22222f;
+
+  --color-border: rgb(255 255 255 / 8%);
+  --color-border-strong: rgb(255 255 255 / 16%);
+
+  --color-text: #f4f4f6;
+  --color-text-muted: #9b9baa;
+  --color-text-subtle: #5c5c6b;
+  --color-text-inverse: #17110a;
+
+  /* ---------- Accent: orange ---------- */
+  --color-accent: #ff8a3d;
+  --color-accent-hover: #ffa063;
+  --color-accent-active: #f2731a;
+  --color-accent-soft: rgb(255 138 61 / 14%);
+  --color-accent-softer: rgb(255 138 61 / 8%);
+  --color-accent-ring: rgb(255 138 61 / 40%);
+
+  /* ---------- Semantic ---------- */
+  --color-success: #4ade80;
+  --color-danger: #ff5f5f;
+  --color-danger-soft: rgb(255 95 95 / 16%);
+  --color-warning: #fbbf24;
+  --color-info: #60a5fa;
+
+  /* ---------- Typing surface ---------- */
+  --color-char-pending: #55555f;
+  --color-char-correct: #eaeaf0;
+  --color-char-incorrect: var(--color-danger);
+  --color-char-extra: #a33c3c;
+  --color-caret: var(--color-accent);
+
+  /* ---------- Typography ---------- */
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:
+    'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', 'Cascadia Code', monospace;
+
+  --text-2xs: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: clamp(1.75rem, 1.2rem + 2vw, 2.25rem);
+  --text-3xl: clamp(2.25rem, 1.4rem + 3.2vw, 3.25rem);
+  --text-typing: clamp(1.25rem, 0.9rem + 1.3vw, 1.875rem);
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.5;
+  --leading-typing: 1.85;
+
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.12em;
+
+  /* ---------- Spacing ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ---------- Radii ---------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 999px;
+
+  /* ---------- Elevation ---------- */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-md: 0 8px 24px -8px rgb(0 0 0 / 60%);
+  --shadow-lg: 0 24px 60px -20px rgb(0 0 0 / 75%);
+  --shadow-accent: 0 8px 32px -12px rgb(255 138 61 / 45%);
+  --glow-caret: 0 0 12px rgb(255 138 61 / 55%);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 380ms;
+
+  /* ---------- Layout ---------- */
+  --layout-max-width: 68rem;
+  --layout-gutter: clamp(var(--space-4), 3vw, var(--space-10));
+
+  /* ---------- Z-index ---------- */
+  --z-caret: 5;
+  --z-sticky: 20;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+}
+
+/**
+ * Users who prefer less motion get instant transitions instead of animations.
+ * Framer Motion respects the same query through its `useReducedMotion` hook.
+ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

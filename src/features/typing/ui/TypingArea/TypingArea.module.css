@@ -1,0 +1,13 @@
+.surface {
+  position: relative;
+  padding: var(--space-2) var(--space-1);
+  border-radius: var(--radius-lg);
+  cursor: text;
+  outline: none;
+}
+
+/* The surface is focusable, but a visible ring around a huge text block is
+   noisy: focus is communicated by the text becoming crisp instead. */
+.surface:focus-visible {
+  outline: none;
+}
